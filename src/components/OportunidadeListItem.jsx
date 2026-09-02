@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'; // Novo Import
 
 export default function OportunidadeListItem({ oportunidade, origem }) {
   const [expandido, setExpandido] = useState(false);
-  const textoAcao = origem === 'facilidades' ? 'Acessar site oficial' : 'Acessar site oficial';
+  const textoAcao = origem === 'facilidades' ? 'Acessar site oficial' : 'Acessar edital';
 
   return (
     <div className="bg-surface border border-border mb-2 rounded-xl shadow-sm dark:shadow-none dark:border dark:border-border transition-all duration-200 ease-out hover:shadow-lg hover:-translate-y-0.5 hover:border-uem-verde/30 dark:hover:bg-surface-hover dark:hover:border-uem-verde/40">

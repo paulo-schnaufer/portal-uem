@@ -5,11 +5,6 @@ export default function SearchBar({ valorInicial, onChangeDebounced, placeholder
   const [valorLocal, setValorLocal] = useState(valorInicial || '');
 
   useEffect(() => {
-    // Sincroniza caso o valor inicial mude pela URL
-    setValorLocal(valorInicial || '');
-  }, [valorInicial]);
-
-  useEffect(() => {
     // Implementação do Debounce (300ms)
     const handler = setTimeout(() => {
       onChangeDebounced(valorLocal);

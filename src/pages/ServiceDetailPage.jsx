@@ -4,9 +4,11 @@ import {
   ArrowLeft,
   BookOpen,
   ExternalLink,
-  GraduationCap,
+  FlaskConical,
   Languages,
+  LifeBuoy,
   Library,
+  Plane,
   Search,
   Utensils,
 } from 'lucide-react';
@@ -15,18 +17,19 @@ import { facilidadesData } from '../data/facilidades';
 
 const iconesPorCategoria = {
   Alimentação: Utensils,
-  'Assistência Estudantil': GraduationCap,
+  'Assistência Estudantil': LifeBuoy,
   Biblioteca: Library,
   Estágio: Search,
   Extensão: BookOpen,
   Idiomas: Languages,
-  Intercâmbio: GraduationCap,
-  Pesquisa: Search,
+  Intercâmbio: Plane,
+  Pesquisa: FlaskConical,
 };
 
 export default function ServiceDetailPage() {
   const { id } = useParams();
   const servico = [...oportunidadesData, ...facilidadesData].find((s) => s.id === id);
+  const ehOportunidade = oportunidadesData.some((item) => item.id === id);
 
   if (!servico) {
     return (
@@ -98,7 +101,7 @@ export default function ServiceDetailPage() {
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full bg-uem-verde hover:bg-uem-verde/90 text-text font-bold py-3 px-4 rounded-sm transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
               >
-                Acessar página oficial
+                {ehOportunidade ? 'Acessar edital' : 'Acessar site oficial'}
                 <ExternalLink size={18} />
               </a>
               <div className="mt-4 space-y-3 border-t border-border pt-4 text-[13px] text-text-muted">

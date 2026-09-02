@@ -14,7 +14,11 @@ export default function Dashboard() {
 
   // Lemos a URL: 'q' para busca, 'cat' para categorias (separadas por vírgula)
   const queryBusca = searchParams.get('q') || '';
-  const queryCategorias = searchParams.get('cat') ? searchParams.get('cat').split(',') : [];
+  const categoriaParam = searchParams.get('cat') || '';
+  const queryCategorias = useMemo(
+    () => (categoriaParam ? categoriaParam.split(',') : []),
+    [categoriaParam]
+  );
 
   // Função para atualizar a URL preservando os parâmetros
   const updateUrlParams = (key, value) => {
@@ -72,6 +76,7 @@ export default function Dashboard() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
             <SearchBar 
+              key={queryBusca}
               valorInicial={queryBusca} 
               onChangeDebounced={(val) => updateUrlParams('q', val)} 
             />
@@ -117,7 +122,10 @@ export default function Dashboard() {
             </svg>
             <h3 className="text-[18px] font-bold text-text mb-2">Nenhum resultado encontrado</h3>
             <p className="text-[15px] text-text-muted max-w-md">
-              Não encontramos resultados para "{queryBusca}" com os filtros selecionados. Tente usar outras palavras-chave ou limpar os filtros.
+              {queryBusca
+                ? `Não encontramos resultados para "${queryBusca}" com os filtros selecionados.`
+                : 'Não encontramos resultados com os filtros selecionados.'}{' '}
+              Tente usar outras palavras-chave ou limpar os filtros.
             </p>
             <button 
               onClick={() => { updateUrlParams('q', null); updateUrlParams('cat', null); }}

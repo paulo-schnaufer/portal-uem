@@ -10,10 +10,7 @@ const ServiceDetailPage = lazy(() => import('./pages/ServiceDetailPage'));
 const Sobre = lazy(() => import('./pages/Sobre'));
 
 export default function App() {
-  const [isDark, setIsDark] = useState(() => {
-    const savedTheme = localStorage.getItem('tema');
-    return savedTheme ? savedTheme === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
-  });
+  const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains('dark'));
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', isDark);

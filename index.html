@@ -2,6 +2,11 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      const temaSalvo = localStorage.getItem('tema');
+      const prefereEscuro = temaSalvo ? temaSalvo === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (prefereEscuro) document.documentElement.classList.add('dark');
+    </script>
     <link rel="icon" type="image/png" href="/uem-logo.png" />
     <link rel="manifest" href="/manifest.json" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
