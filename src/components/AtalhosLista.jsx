@@ -2,8 +2,8 @@ import React from 'react';
 import { GraduationCap, Monitor, BookOpen, LifeBuoy, ExternalLink } from 'lucide-react';
 
 const atalhos = [
-  { id: 'sigaa', nome: 'SIGAA', icone: GraduationCap, link: 'https://sigaa.uem.br' },
-  { id: 'moodle', nome: 'Moodle', icone: Monitor, link: 'https://moodle.uem.br' },
+  { id: 'sigaa', nome: 'SIGAA', icone: GraduationCap, link: 'https://sigs.uem.br/sigaa/public/' },
+  { id: 'moodle', nome: 'Moodle', icone: Monitor, link: 'https://ava.uem.br/login/' },
   { id: 'bce', nome: 'BCE', icone: BookOpen, link: 'https://bce.uem.br' },
   { id: 'sav', nome: 'SAV', icone: LifeBuoy, link: 'https://npd.uem.br/sav' },
 ];

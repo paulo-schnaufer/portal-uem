@@ -24,7 +24,7 @@ export default function SidebarAtalhos() {
               href={item.link}
               target="_blank"
               rel="noreferrer"
-              className="group flex items-center justify-between p-3 rounded-xl border border-transparent hover:border-slate-100 hover:bg-slate-50 hover:shadow-sm transition-all duration-300"
+              className="group flex items-center justify-between p-3 rounded-xl border border-transparent hover:border-slate-100 hover:bg-slate-50 transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-sm"
             >
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-blue-50 text-blue-900 rounded-lg group-hover:bg-blue-900 group-hover:text-white transition-colors">

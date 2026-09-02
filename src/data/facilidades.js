@@ -1,29 +1,38 @@
 export const facilidadesData = [
   {
-    id: 'ru',
-    categoria: 'Alimentação',
-    titulo: 'Restaurante Universitário (RU)',
-    descricao: 'Café da manhã, almoço e jantar a preço subsidiado para estudantes e servidores. É necessário apresentar carteira de estudante (RA) ou documento pessoal com foto.',
-    local: 'Bloco P-01, câmpus sede',
-    horario: 'Café da manhã 6h40–7h40, almoço 11h–13h, jantar 18h–19h30, de segunda a sexta',
-    contato: 'sec-ru@uem.br / (44) 3011-4302'
+    id: "restaurante-universitario",
+    titulo: "Restaurante Universitário (RU)",
+    categoria: "Alimentação",
+    descricao: "Confira o cardápio semanal, valores e regras de acesso ao refeitório central da UEM.",
+    link: "http://www.ru.uem.br",
+    tags: ["alimentação", "cardápio", "almoço", "jantar"],
+    destaque: true
   },
   {
-    id: 'bce',
-    categoria: 'Biblioteca',
-    titulo: 'Biblioteca Central (BCE)',
-    descricao: 'Empréstimo de acervo, espaços de estudo e auditório para eventos (reservável pelo mesmo contato).',
-    local: 'Bloco P-03, câmpus sede',
-    horario: 'Segunda a sexta das 8h às 22h, sábados das 7h30 às 12h45',
-    contato: 'sec-bce@uem.br / (44) 3011-4480'
+    id: "biblioteca-central",
+    titulo: "Biblioteca Central (BCE)",
+    categoria: "Biblioteca",
+    descricao: "Acesse o catálogo online, renove seus empréstimos e consulte horários de funcionamento.",
+    link: "http://www.bce.uem.br",
+    tags: ["livros", "estudo", "empréstimo", "acervo"],
+    destaque: true
   },
   {
-    id: 'cdr',
-    categoria: 'Esporte e Bem-estar',
-    titulo: 'Complexo Esportivo (CDR)',
-    descricao: 'Academia (musculação e ginástica), piscina semiolímpica coberta e aquecida (natação e hidroginástica), artes marciais (aikido e karatê), quadras poliesportivas, campo de futebol e pista de atletismo. Organiza também os Jogos Universitários da UEM.',
-    local: 'Bloco M-06, sala 001, câmpus sede',
-    horario: 'Consultar diretamente — varia por modalidade/projeto',
-    contato: 'sec-cdr@uem.br / (44) 3011-4314'
+    id: "diretoria-assuntos-comunitarios",
+    titulo: "Diretoria de Assuntos Comunitários (DCA)",
+    categoria: "Assistência Estudantil",
+    descricao: "Informações sobre auxílios, moradia estudantil, apoio psicológico e assistência social.",
+    link: "http://www.dca.uem.br",
+    tags: ["bolsas", "auxílio", "psicologia", "moradia"],
+    destaque: false
+  },
+  {
+    id: "instituto-de-linguas",
+    titulo: "Instituto de Línguas (ILG)",
+    categoria: "Idiomas",
+    descricao: "Cursos de línguas estrangeiras com preços acessíveis para a comunidade acadêmica.",
+    link: "http://www.ilg.uem.br",
+    tags: ["inglês", "espanhol", "idiomas", "cursos"],
+    destaque: false
   }
 ];

@@ -22,7 +22,7 @@ export default function OportunidadeCard({ oportunidade }) {
   } = oportunidade;
 
   return (
-    <div className={`group relative bg-white border rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between ${
+    <div className={`group relative bg-white border rounded-2xl p-6 shadow-sm transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-sm flex flex-col justify-between ${
       destaque ? 'border-blue-200 ring-1 ring-blue-500/10' : 'border-slate-100 hover:border-slate-300'
     }`}>
       <div>

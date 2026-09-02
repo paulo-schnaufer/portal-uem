@@ -1,39 +1,30 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Dashboard from './pages/Dashboard';
-import ServiceDetailPage from './pages/ServiceDetailPage';
+import Layout from './components/Layout';
+
+// Lazy loading das páginas
+const Home = lazy(() => import('./pages/Home'));
+const Dashboard = lazy(() => import('./pages/Dashboard')); // Será a nossa página "Explorar"
+const ServiceDetailPage = lazy(() => import('./pages/ServiceDetailPage'));
+const Sobre = lazy(() => import('./pages/Sobre'));
 
 export default function App() {
   return (
     <Router>
-      {/* 
-        Substituído: bg-slate-50 -> bg-uem-cinza-fundo 
-        Substituído: text-slate-900 -> text-uem-preto 
-      */}
-      <div className="min-h-screen bg-uem-cinza-fundo text-uem-preto flex flex-col font-sans">
-        
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
+      <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-uem-verde font-bold">Carregando...</div>}>
+        <Routes>
+          <Route element={<Layout />}>
+            {/* A nova Vitrine fica na raiz */}
+            <Route path="/" element={<Home />} />
+            
+            {/* O motor de busca e filtros fica em /explorar */}
+            <Route path="/explorar" element={<Dashboard />} />
+            
             <Route path="/servico/:id" element={<ServiceDetailPage />} />
-          </Routes>
-        </main>
-
-        {/* 
-          Substituído: border-slate-200 -> border-uem-cinza-borda
-          Substituído: bg-white -> bg-uem-branco
-        */}
-        <footer className="border-t border-uem-cinza-borda bg-uem-branco py-6 text-center">
-          {/* 
-            Aplicada a escala tipográfica de Metadados: 12px, Regular, Cinza Texto 
-            Substituído: text-slate-500 -> text-uem-cinza-texto
-          */}
-          <p className="text-[12px] font-normal text-uem-cinza-texto font-sans">
-            © {new Date().getFullYear()} Universidade Estadual de Maringá - Portal de Serviços Estudantis
-          </p>
-        </footer>
-        
-      </div>
+            <Route path="/sobre" element={<Sobre />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </Router>
   );
 }

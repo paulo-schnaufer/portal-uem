@@ -6,7 +6,7 @@ export default function OportunidadeListItem({ oportunidade }) {
   const [expandido, setExpandido] = useState(false);
 
   return (
-    <div className="bg-uem-branco border border-uem-cinza-borda mb-2 transition-colors hover:border-uem-verde">
+    <div className="bg-uem-branco border border-uem-cinza-borda mb-2 transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-sm hover:border-uem-verde">
       {/* Cabeçalho da Lista (Inalterado) */}
       <button
         onClick={() => setExpandido(!expandido)}
