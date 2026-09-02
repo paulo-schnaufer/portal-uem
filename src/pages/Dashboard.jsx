@@ -135,7 +135,7 @@ export default function Dashboard() {
                   {dadosFiltrados[categoria].map((item) => (
                     abaAtiva === 'oportunidades' 
                       ? <OportunidadeListItem key={item.id} oportunidade={item} />
-                      : <div key={item.id} className="p-4 bg-uem-branco border border-uem-cinza-borda mb-2">{/* Substituir pelo Componente Real */} <h3 className="font-bold text-[18px]">{item.titulo}</h3> </div>
+                      : <OportunidadeListItem key={item.id} oportunidade={item} />
                   ))}
                 </div>
               </section>

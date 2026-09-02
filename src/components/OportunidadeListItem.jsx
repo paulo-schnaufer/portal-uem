@@ -22,9 +22,11 @@ export default function OportunidadeListItem({ oportunidade }) {
           </span>
         </div>
         <div className="flex flex-wrap items-center gap-3 text-[12px] font-bold text-uem-cinza-texto font-sans">
-          <span className="bg-uem-cinza-fundo px-2 py-1 border border-uem-cinza-borda">
-            {oportunidade.valor}
-          </span>
+          {oportunidade.valor && (
+            <span className="bg-uem-cinza-fundo px-2 py-1 border border-uem-cinza-borda">
+              {oportunidade.valor}
+            </span>
+          )}
           {oportunidade.prazo && (
             <span className="text-uem-preto-suave">
               Prazo: {oportunidade.prazo}
@@ -58,7 +60,7 @@ export default function OportunidadeListItem({ oportunidade }) {
                   rel="noreferrer"
                   className="inline-block bg-uem-verde hover:bg-uem-verde/90 text-uem-branco text-[15px] font-bold py-2 px-6 transition-colors font-sans text-center"
                 >
-                  Acessar Edital / Serviço
+                  Acessar página oficial
                   <span className="sr-only"> (abre em nova aba)</span>
                 </a>
               )}

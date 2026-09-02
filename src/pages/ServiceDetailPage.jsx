@@ -2,10 +2,26 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { oportunidadesData } from '../data/oportunidades';
+import { facilidadesData } from '../data/facilidades';
 
 export default function ServiceDetailPage() {
   const { id } = useParams();
-  const servico = oportunidadesData.find((s) => s.id === id) || oportunidadesData[0];
+  const servico = [...oportunidadesData, ...facilidadesData].find((s) => s.id === id);
+
+  if (!servico) {
+    return (
+      <div className="min-h-screen bg-uem-cinza-fundo py-8 px-4 sm:px-6 lg:px-8 font-sans">
+        <div className="max-w-4xl mx-auto px-4 py-8">
+          <h1 className="text-3xl md:text-4xl font-extrabold text-uem-preto mb-6">
+            Serviço não encontrado
+          </h1>
+          <Link to="/explorar" className="text-uem-cinza-texto hover:text-uem-verde inline-flex items-center gap-2 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-uem-verde rounded-sm">
+            <ArrowLeft size={16} /> Voltar para a lista
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-uem-cinza-fundo py-8 px-4 sm:px-6 lg:px-8 font-sans">

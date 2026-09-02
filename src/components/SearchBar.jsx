@@ -24,6 +24,7 @@ export default function SearchBar({ valorInicial, onChangeDebounced, placeholder
       <input
         type="text"
         placeholder={placeholder || "Buscar por título, descrição ou tags..."}
+        aria-label="Buscar por título, descrição ou tags"
         value={valorLocal}
         onChange={(e) => setValorLocal(e.target.value)}
         className="w-full bg-uem-cinza-fundo border border-uem-cinza-borda rounded-sm py-2.5 pl-10 pr-4 text-[15px] font-sans text-uem-preto placeholder:text-uem-cinza-texto outline-none focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:border-transparent transition-all"

@@ -17,6 +17,7 @@ export default function CategoryFilter({ categorias, selecionadas, onChange }) {
           <button
             key={cat}
             onClick={() => toggleCategoria(cat)}
+            aria-pressed={isAtivo}
             className={`px-4 py-1.5 rounded-full text-[13px] font-bold font-sans transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-uem-verde ${
               isAtivo
                 ? 'bg-uem-verde text-uem-branco border border-uem-verde'

@@ -4,9 +4,9 @@
   "description": "Seu hub central para editais, bolsas e serviços da UEM.",
   "icons": [
     {
-      "src": "/vite.svg", 
-      "type": "image/svg+xml",
-      "sizes": "512x512"
+      "src": "/uem-logo.png",
+      "type": "image/png",
+      "sizes": "400x191"
     }
   ],
   "start_url": "/",

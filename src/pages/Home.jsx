@@ -21,7 +21,7 @@ export default function Home() {
       <section className="relative w-full h-[400px] lg:h-[450px] bg-uem-cinza-fundo flex items-center justify-center overflow-hidden">
         
         <img
-          src="/hero-bg.jpg"
+          src="/hero-bg.webp"
           alt="Vista do campus sede da Universidade Estadual de Maringá"
           className="absolute inset-0 w-full h-full object-cover z-10"
         />
