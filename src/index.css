@@ -1,2 +1,22 @@
 @import "tailwindcss";
-.hide-scrollbar::-webkit-scrollbar { display: none; } .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+@theme {
+  /* Cores da UEM */
+  --color-uem-verde: #00A859;
+  --color-uem-vermelho: #ED3237;
+  --color-uem-preto: #000000;
+  --color-uem-preto-suave: #373737;
+  --color-uem-branco: #FEFEFE;
+  
+  /* Tons Neutros Derivados */
+  --color-uem-cinza-fundo: #F4F5F6;
+  --color-uem-cinza-borda: #E2E5E8;
+  --color-uem-cinza-texto: #555555;
+
+  /* Stack Tipográfica Base */
+  --font-sans: Arial, "Liberation Sans", Arimo, sans-serif;
+}
+
+/* Utilitários customizados */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
