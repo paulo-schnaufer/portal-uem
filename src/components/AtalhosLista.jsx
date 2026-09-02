@@ -22,14 +22,14 @@ export default function AtalhosLista() {
             href={item.link}
             target="_blank"
             rel="noreferrer"
-            className="group flex items-center gap-2 shrink-0 rounded-sm text-uem-preto-suave hover:text-uem-verde outline-none focus-visible:text-uem-verde focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2 transition-all"
+            className="group flex items-center gap-2 shrink-0 rounded-sm text-text-muted hover:text-uem-verde outline-none focus-visible:text-uem-verde focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2 focus-visible:ring-offset-bg transition-all duration-200"
           >
             <Icone className="w-5 h-5 transition-colors" />
             <span className="text-[15px] font-bold font-sans">
               {item.nome}
             </span>
             {/* Ícone sempre visível, mas com cor sutil que ganha destaque no hover/focus */}
-            <ExternalLink className="w-3 h-3 text-uem-cinza-borda group-hover:text-uem-verde focus-visible:text-uem-verde transition-colors" />
+            <ExternalLink className="w-3 h-3 text-border group-hover:text-uem-verde focus-visible:text-uem-verde transition-colors" />
             <span className="sr-only"> (abre em nova aba)</span>
           </a>
         );

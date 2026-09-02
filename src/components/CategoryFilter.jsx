@@ -18,10 +18,10 @@ export default function CategoryFilter({ categorias, selecionadas, onChange }) {
             key={cat}
             onClick={() => toggleCategoria(cat)}
             aria-pressed={isAtivo}
-            className={`px-4 py-1.5 rounded-full text-[13px] font-bold font-sans transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:ring-uem-verde ${
+            className={`px-4 py-1.5 rounded-full text-[13px] font-bold font-sans transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bg focus-visible:ring-uem-verde ${
               isAtivo
-                ? 'bg-uem-verde text-uem-branco border border-uem-verde'
-                : 'bg-uem-cinza-fundo text-uem-cinza-texto border border-uem-cinza-borda hover:border-uem-verde hover:text-uem-preto'
+                ? 'bg-uem-verde text-text border border-uem-verde'
+                : 'bg-bg text-text-muted border border-border hover:bg-surface-hover hover:border-uem-verde hover:text-text'
             }`}
           >
             {cat}

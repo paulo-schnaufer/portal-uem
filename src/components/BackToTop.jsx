@@ -26,7 +26,7 @@ export default function BackToTop() {
     <button
       onClick={subirParaTopo}
       aria-label="Voltar ao topo da página"
-      className="fixed bottom-6 right-6 p-3 bg-uem-preto hover:bg-uem-verde text-uem-branco rounded-full shadow-lg transition-all duration-200 ease-in-out hover:-translate-y-0.5 z-50 outline-none focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2"
+      className="fixed bottom-6 right-6 p-3 bg-text hover:bg-uem-verde text-bg rounded-full shadow-lg transition-all duration-200 ease-in-out hover:-translate-y-0.5 z-50 outline-none focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
     >
       <ArrowUp size={24} />
     </button>

@@ -1,20 +1,49 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* Cores da UEM */
+  /* Marca — mantém as cores oficiais */
   --color-uem-verde: #00A859;
+  --color-uem-verde-escuro: #00814A;
+  --color-uem-verde-suave: #E6F5EC;
   --color-uem-vermelho: #ED3237;
-  --color-uem-preto: #000000;
-  --color-uem-preto-suave: #373737;
-  --color-uem-branco: #FEFEFE;
-  
-  /* Tons Neutros Derivados */
-  --color-uem-cinza-fundo: #F4F5F6;
-  --color-uem-cinza-borda: #E2E5E8;
-  --color-uem-cinza-texto: #555555;
+  --color-uem-preto: var(--text);
+  --color-uem-preto-suave: var(--text-muted);
+  --color-uem-branco: var(--surface);
+
+  /* Tokens legados mantidos como aliases para os componentes ainda não migrados */
+  --color-uem-cinza-fundo: var(--bg);
+  --color-uem-cinza-borda: var(--border);
+  --color-uem-cinza-texto: var(--text-muted);
+
+  /* Semânticas — trocam de valor entre :root e .dark */
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
 
   /* Stack Tipográfica Base */
   --font-sans: Arial, "Liberation Sans", Arimo, sans-serif;
+}
+
+:root {
+  --bg: #F4F5F6;
+  --surface: #FFFFFF;
+  --surface-hover: #FAFBFA;
+  --text: #1A1A1A;
+  --text-muted: #555555;
+  --border: #E2E5E8;
+}
+
+.dark {
+  --bg: #101512;
+  --surface: #1A211D;
+  --surface-hover: #212A25;
+  --text: #EDEFEE;
+  --text-muted: #A3ACA7;
+  --border: #2A332E;
 }
 
 @layer base {

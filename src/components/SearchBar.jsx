@@ -20,14 +20,14 @@ export default function SearchBar({ valorInicial, onChangeDebounced, placeholder
 
   return (
     <div className="relative w-full max-w-lg shrink-0">
-      <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-uem-cinza-texto" />
+      <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-text-muted" />
       <input
         type="text"
         placeholder={placeholder || "Buscar por título, descrição ou tags..."}
         aria-label="Buscar por título, descrição ou tags"
         value={valorLocal}
         onChange={(e) => setValorLocal(e.target.value)}
-        className="w-full bg-uem-cinza-fundo border border-uem-cinza-borda rounded-sm py-2.5 pl-10 pr-4 text-[15px] font-sans text-uem-preto placeholder:text-uem-cinza-texto outline-none focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:border-transparent transition-all"
+        className="w-full bg-bg border border-border rounded-sm py-2.5 pl-10 pr-4 text-[15px] font-sans text-text placeholder:text-text-muted outline-none focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2 focus-visible:ring-offset-bg focus-visible:border-transparent transition-all duration-200"
       />
     </div>
   );
