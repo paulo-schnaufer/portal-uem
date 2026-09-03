@@ -24,13 +24,13 @@ export default function Home() {
         <img
           src="/hero-bg.webp"
           alt="Vista do campus sede da Universidade Estadual de Maringá"
-          className="absolute inset-0 w-full h-full object-cover z-10"
+          className="absolute inset-0 w-full h-full object-cover z-10 saturate-[0.85] contrast-[1.05]"
         />
         
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/10 z-20"></div>
         
         <div className="relative z-30 w-full max-w-xl flex flex-col items-start text-left">
-          <h1 className="font-display text-white text-[36px] lg:text-[48px] font-extrabold tracking-tight leading-tight mb-4 drop-shadow-md">
+          <h1 className="font-display text-white text-[36px] lg:text-[48px] font-bold tracking-tight leading-tight mb-4 drop-shadow-md">
             Sua UEM, com facilidades e oportunidades.
           </h1>
           <p className="text-white/90 text-[18px] lg:text-[20px] font-medium mb-8 drop-shadow-sm">
@@ -38,7 +38,7 @@ export default function Home() {
           </p>
           <Link
             to="/explorar"
-            className="relative z-30 inline-flex items-center gap-2 bg-uem-verde text-text font-bold py-3 px-8 rounded-sm transition-all duration-200 hover:brightness-110 text-[16px] outline-none focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+            className="relative z-30 inline-flex items-center gap-2 bg-uem-verde text-text font-bold py-3 px-8 rounded-none transition-all duration-200 hover:brightness-110 text-[16px] outline-none focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
           >
             Ver o que a UEM oferece
             <ArrowRight size={18} aria-hidden="true" />
@@ -48,7 +48,7 @@ export default function Home() {
 
       {/* 2. Seção "Em Destaque" (Carrossel Horizontal com Scroll Snap) */}
       {itensDestaque.length > 0 && (
-        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
           <h2 className="font-display text-[24px] font-bold text-text mb-6">Em destaque</h2>
           
           <div className="flex overflow-x-auto gap-6 pt-2 pb-6 hide-scrollbar snap-x snap-mandatory">
@@ -56,10 +56,10 @@ export default function Home() {
               <Link
                 key={item.id}
                 to={`/servico/${item.id}`}
-                className="surface-interactive hover:border-border snap-start shrink-0 w-[280px] sm:w-[320px] bg-surface p-6 rounded-sm flex flex-col justify-between outline-none focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+                className="border border-border border-b-2 border-b-uem-verde snap-start shrink-0 w-[280px] sm:w-[320px] bg-surface p-6 rounded-sm flex flex-col justify-between transition-colors duration-200 hover:bg-surface-hover outline-none focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
               >
                 <div>
-                  <span className="inline-block bg-uem-verde/10 text-uem-verde text-[11px] font-bold px-2 py-1 rounded-sm mb-3 uppercase tracking-wider">
+                  <span className="border-l-2 border-uem-verde pl-2 text-uem-verde text-[11px] font-bold uppercase tracking-wider">
                     {item.categoria}
                   </span>
                   <h3 className="text-[19px] font-extrabold text-text mt-2 mb-3 leading-tight">
@@ -69,10 +69,9 @@ export default function Home() {
                     {item.descricao}
                   </p>
                 </div>
-                <span className="mt-6 text-[14px] font-bold text-text flex items-center gap-1 group">
+                <div className="mt-6 text-[14px] font-bold text-text hover:underline hover:underline-offset-4 hover:text-uem-verde">
                   Ver detalhes
-                  <ArrowRight size={16} className="text-text-muted group-hover:text-uem-verde transition-colors" />
-                </span>
+                </div>
               </Link>
             ))}
           </div>
@@ -80,21 +79,23 @@ export default function Home() {
       )}
 
       {/* 3. Seção de Categorias (Grid Responsivo) */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
         <h2 className="font-display text-[24px] font-bold text-text mb-6">Navegue por categoria</h2>
-        <div className="flex flex-wrap gap-3">
-          {todasCategorias.map((cat) => {
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+          {todasCategorias.map((cat, index) => {
             const IconeCategoria = categoriaIcones[cat];
 
             return (
-              <Link
-                key={cat}
-                to={`/explorar?cat=${encodeURIComponent(cat)}`}
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[13px] font-bold font-sans transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bg focus-visible:ring-uem-verde bg-bg text-text-muted border border-border hover:bg-surface-hover hover:border-uem-verde hover:text-text"
-              >
-                <IconeCategoria size={16} aria-hidden="true" />
-                {cat}
-              </Link>
+              <React.Fragment key={cat}>
+                {index > 0 && <span aria-hidden="true" className="text-border">|</span>}
+                <Link
+                  to={`/explorar?cat=${encodeURIComponent(cat)}`}
+                  className="inline-flex items-center gap-1 text-[15px] font-bold text-text hover:underline hover:underline-offset-4 outline-none focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+                >
+                  <IconeCategoria size={14} aria-hidden="true" />
+                  {cat}
+                </Link>
+              </React.Fragment>
             );
           })}
         </div>
