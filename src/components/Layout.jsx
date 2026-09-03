@@ -15,7 +15,7 @@ export default function Layout({ isDark, onToggleTheme }) {
 
   return (
     <div className="min-h-screen bg-bg text-text flex flex-col font-sans">
-      <header className={`sticky top-0 z-40 py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center transition-all duration-200 ${isScrolled ? 'backdrop-blur-md bg-surface/70 border-b border-border/50' : 'bg-surface border-b border-border'}`}>
+      <header className={`sticky top-0 z-40 py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center transition-all duration-200 ${isScrolled ? 'backdrop-blur-md bg-surface/70 border-b border-border/50' : 'bg-surface border-b border-border shadow-[0_1px_3px_rgba(0,0,0,0.06)]'}`}>
         <Link to="/" className="text-[18px] font-bold text-uem-verde outline-none focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2 focus-visible:ring-offset-bg">
           Portal de Serviços UEM
         </Link>

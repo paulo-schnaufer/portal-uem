@@ -3,7 +3,7 @@ import React from 'react';
 export default function SkeletonCard() {
   return (
     <div
-      className="w-full max-w-md rounded-xl border border-border bg-surface p-6 shadow-sm"
+      className="surface-outline w-full max-w-md rounded-xl bg-surface p-6"
       aria-label="Só um instante..."
       role="status"
     >

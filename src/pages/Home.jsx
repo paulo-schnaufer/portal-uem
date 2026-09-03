@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { oportunidadesData } from '../data/oportunidades';
 import { facilidadesData } from '../data/facilidades';
+import categoriaIcones from '../utils/categoriaIcones';
 
 export default function Home() {
 
@@ -18,7 +19,7 @@ export default function Home() {
     <div className="bg-bg min-h-screen font-sans pb-16">
       
       {/* 1. Hero Section - Design Limpo e Direto */}
-      <section className="relative w-full h-[400px] lg:h-[450px] bg-bg flex items-center justify-center overflow-hidden">
+      <section className="relative w-full h-[400px] lg:h-[450px] bg-bg flex flex-col items-start justify-end px-4 sm:px-6 lg:px-8 pb-12 md:pb-16 overflow-hidden">
         
         <img
           src="/hero-bg.webp"
@@ -28,18 +29,19 @@ export default function Home() {
         
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/10 z-20"></div>
         
-        <div className="relative z-30 bg-white/8 dark:bg-white/6 backdrop-blur-lg border border-white/15 rounded-2xl p-8 md:p-12 text-center px-4 max-w-3xl mx-4 md:mx-auto">
-          <h1 className="text-white text-[36px] lg:text-[48px] font-extrabold tracking-tight leading-tight mb-4 drop-shadow-sm">
+        <div className="relative z-30 w-full max-w-xl flex flex-col items-start text-left">
+          <h1 className="font-display text-white text-[36px] lg:text-[48px] font-extrabold tracking-tight leading-tight mb-4 drop-shadow-md">
             Sua UEM, com facilidades e oportunidades.
           </h1>
-          <p className="text-white/90 text-[18px] lg:text-[20px] font-medium mb-8 drop-shadow-sm max-w-2xl mx-auto">
+          <p className="text-white/90 text-[18px] lg:text-[20px] font-medium mb-8 drop-shadow-sm">
             Bolsas, editais, locais e suportes da universidade, tudo num só lugar, como deveria ser.
           </p>
           <Link
             to="/explorar"
-            className="inline-flex items-center gap-2 bg-uem-verde text-text font-bold py-3 px-8 rounded-sm transition-all duration-200 hover:brightness-110 text-[16px] outline-none focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+            className="relative z-30 inline-flex items-center gap-2 bg-uem-verde text-text font-bold py-3 px-8 rounded-sm transition-all duration-200 hover:brightness-110 text-[16px] outline-none focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
           >
-            Ver o que a UEM oferece -&gt;
+            Ver o que a UEM oferece
+            <ArrowRight size={18} aria-hidden="true" />
           </Link>
         </div>
       </section>
@@ -47,30 +49,30 @@ export default function Home() {
       {/* 2. Seção "Em Destaque" (Carrossel Horizontal com Scroll Snap) */}
       {itensDestaque.length > 0 && (
         <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
-          <h2 className="text-[24px] font-bold text-text mb-6">Em destaque</h2>
+          <h2 className="font-display text-[24px] font-bold text-text mb-6">Em destaque</h2>
           
           <div className="flex overflow-x-auto gap-6 pt-2 pb-6 hide-scrollbar snap-x snap-mandatory">
             {itensDestaque.map((item) => (
               <Link
                 key={item.id}
                 to={`/servico/${item.id}`}
-                className="snap-start shrink-0 w-[280px] sm:w-[320px] bg-surface border border-border p-6 rounded-sm hover:border-uem-verde transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-md flex flex-col justify-between outline-none focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+                className="surface-interactive hover:border-border snap-start shrink-0 w-[280px] sm:w-[320px] bg-surface p-6 rounded-sm flex flex-col justify-between outline-none focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
               >
                 <div>
                   <span className="inline-block bg-uem-verde/10 text-uem-verde text-[11px] font-bold px-2 py-1 rounded-sm mb-3 uppercase tracking-wider">
                     {item.categoria}
                   </span>
-                  <h3 className="text-[18px] font-bold text-text mt-2 mb-3 leading-tight">
+                  <h3 className="text-[19px] font-extrabold text-text mt-2 mb-3 leading-tight">
                     {item.titulo}
                   </h3>
-                  <p className="text-[14px] text-text-muted line-clamp-3">
+                  <p className="text-[13px] text-text-muted/80 leading-relaxed line-clamp-3">
                     {item.descricao}
                   </p>
                 </div>
-                <div className="mt-6 text-[14px] font-bold text-text flex items-center gap-1 group">
+                <span className="mt-6 text-[14px] font-bold text-text flex items-center gap-1 group">
                   Ver detalhes
                   <ArrowRight size={16} className="text-text-muted group-hover:text-uem-verde transition-colors" />
-                </div>
+                </span>
               </Link>
             ))}
           </div>
@@ -79,25 +81,27 @@ export default function Home() {
 
       {/* 3. Seção de Categorias (Grid Responsivo) */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
-        <h2 className="text-[24px] font-bold text-text mb-6">Navegue por categoria</h2>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {todasCategorias.map((cat) => (
-            /* ROTA ATUALIZADA AQUI */
-            <Link
-              key={cat}
-              to={`/explorar?cat=${encodeURIComponent(cat)}`}
-              className="bg-surface border border-border shadow-sm p-6 text-center hover:bg-surface-hover hover:border-uem-verde transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-md group rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
-            >
-              <h3 className="text-[16px] font-bold text-text group-hover:text-uem-verde transition-colors">
+        <h2 className="font-display text-[24px] font-bold text-text mb-6">Navegue por categoria</h2>
+        <div className="flex flex-wrap gap-3">
+          {todasCategorias.map((cat) => {
+            const IconeCategoria = categoriaIcones[cat];
+
+            return (
+              <Link
+                key={cat}
+                to={`/explorar?cat=${encodeURIComponent(cat)}`}
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[13px] font-bold font-sans transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bg focus-visible:ring-uem-verde bg-bg text-text-muted border border-border hover:bg-surface-hover hover:border-uem-verde hover:text-text"
+              >
+                <IconeCategoria size={16} aria-hidden="true" />
                 {cat}
-              </h3>
-            </Link>
-          ))}
+              </Link>
+            );
+          })}
         </div>
       </section>
 
       {/* 4. Seção Final de CTA */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 text-center bg-surface border border-border p-8 lg:p-12 rounded-sm">
+      <section className="surface-outline max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 text-center bg-surface p-8 lg:p-12 rounded-sm">
         <h2 className="text-[24px] font-bold text-text mb-4">
           Não encontrou o que procurava?
         </h2>

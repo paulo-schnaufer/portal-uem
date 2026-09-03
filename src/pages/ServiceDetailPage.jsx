@@ -4,27 +4,10 @@ import {
   ArrowLeft,
   BookOpen,
   ExternalLink,
-  FlaskConical,
-  Languages,
-  LifeBuoy,
-  Library,
-  Plane,
-  Search,
-  Utensils,
 } from 'lucide-react';
 import { oportunidadesData } from '../data/oportunidades';
 import { facilidadesData } from '../data/facilidades';
-
-const iconesPorCategoria = {
-  Alimentação: Utensils,
-  'Assistência Estudantil': LifeBuoy,
-  Biblioteca: Library,
-  Estágio: Search,
-  Extensão: BookOpen,
-  Idiomas: Languages,
-  Intercâmbio: Plane,
-  Pesquisa: FlaskConical,
-};
+import iconesPorCategoria from '../utils/categoriaIcones';
 
 export default function ServiceDetailPage() {
   const { id } = useParams();
@@ -51,8 +34,8 @@ export default function ServiceDetailPage() {
   return (
     <div className="min-h-screen bg-bg py-8 px-4 sm:px-6 lg:px-8 font-sans">
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <div className="mb-8 aspect-[16/9] bg-uem-verde-suave dark:bg-surface-hover rounded-xl flex items-center justify-center">
-          <IconeCategoria className="text-uem-verde" size={96} strokeWidth={1.25} aria-hidden="true" />
+        <div className="surface-flat mb-8 max-h-[220px] aspect-[21/9] bg-uem-verde-suave dark:bg-surface-hover rounded-xl flex items-center justify-center">
+          <IconeCategoria className="text-uem-verde" size={56} strokeWidth={1.25} aria-hidden="true" />
         </div>
 
         <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap items-center gap-2 text-[14px] text-text-muted">
@@ -81,14 +64,14 @@ export default function ServiceDetailPage() {
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="md:col-span-2 bg-surface border border-border p-6 rounded-sm shadow-sm">
+          <div className="surface-outline md:col-span-2 bg-surface p-6 rounded-sm">
             <h2 className="text-xl font-bold text-text mb-4">Sobre o serviço</h2>
             <p className="text-text-muted text-[16px] leading-relaxed">
               {servico.descricao}
             </p>
           </div>
 
-          <div className="bg-surface border border-border p-6 rounded-sm shadow-sm flex flex-col justify-between">
+          <div className="surface-outline bg-surface p-6 rounded-sm flex flex-col justify-between">
             <div>
               <h3 className="text-lg font-bold text-text mb-4 border-b border-border pb-2">
                 Acesso Direto
@@ -99,7 +82,7 @@ export default function ServiceDetailPage() {
                 href={servico.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full bg-uem-verde hover:bg-uem-verde/90 text-text font-bold py-3 px-4 rounded-sm transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-sm outline-none focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+                className="surface-interactive flex items-center justify-center gap-2 w-full bg-uem-verde hover:bg-uem-verde/90 text-text font-bold py-3 px-4 rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
               >
                 {ehOportunidade ? 'Acessar edital' : 'Acessar site oficial'}
                 <ExternalLink size={18} />

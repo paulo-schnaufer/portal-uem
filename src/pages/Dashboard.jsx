@@ -138,7 +138,7 @@ export default function Dashboard() {
           <div className="space-y-10">
             {categoriasAtivas.map((categoria) => (
               <section key={categoria}>
-                <h2 className="text-[18px] font-bold text-text mb-4 font-sans">{categoria}</h2>
+                <h2 className="font-display text-[18px] font-bold text-text mb-4">{categoria}</h2>
                 <div>
                   {dadosFiltrados[categoria].map((item) => (
                     abaAtiva === 'oportunidades' 

@@ -26,6 +26,7 @@
 
   /* Stack Tipográfica Base */
   --font-sans: Arial, "Liberation Sans", Arimo, sans-serif;
+  --font-display: Georgia, 'Times New Roman', serif;
 }
 
 :root {
@@ -49,6 +50,24 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .surface-flat {
+    @apply border-0 shadow-none;
+  }
+
+  .surface-outline {
+    @apply border border-border shadow-none;
+  }
+
+  .surface-interactive {
+    @apply border border-border transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 hover:border-uem-verde/30;
   }
 }
 
