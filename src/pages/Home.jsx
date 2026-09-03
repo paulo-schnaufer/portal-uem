@@ -34,7 +34,7 @@ export default function Home() {
             Sua UEM, com facilidades e oportunidades.
           </h1>
           <p className="text-white/90 text-[18px] lg:text-[20px] font-medium mb-8 drop-shadow-sm">
-            Bolsas, editais, locais e suportes da universidade, tudo num só lugar, como deveria ser.
+            Bolsas, editais, locais e suportes da universidade, tudo num só lugar.
           </p>
           <Link
             to="/explorar"
