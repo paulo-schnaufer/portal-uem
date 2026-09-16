@@ -2,7 +2,7 @@ export const facilidadesData = [
   {
     id: "restaurante-universitario",
     titulo: "Restaurante Universitário (RU)",
-    categoria: "Alimentação",
+    categoria: "Serviços Acadêmicos",
     descricao: "Confira o cardápio semanal, valores e regras de acesso ao refeitório central da UEM.",
     link: "http://www.ru.uem.br",
     tags: ["alimentação", "cardápio", "almoço", "jantar"],
@@ -11,7 +11,7 @@ export const facilidadesData = [
   {
     id: "biblioteca-central",
     titulo: "Biblioteca Central (BCE)",
-    categoria: "Biblioteca",
+    categoria: "Serviços Acadêmicos",
     descricao: "Acesse o catálogo online, renove seus empréstimos e consulte horários de funcionamento.",
     link: "http://www.bce.uem.br",
     tags: ["livros", "estudo", "empréstimo", "acervo"],
@@ -20,7 +20,7 @@ export const facilidadesData = [
   {
     id: "diretoria-assuntos-comunitarios",
     titulo: "Diretoria de Assuntos Comunitários (DCA)",
-    categoria: "Assistência Estudantil",
+    categoria: "Assistência e Permanência",
     descricao: "Informações sobre auxílios, moradia estudantil, apoio psicológico e assistência social.",
     link: "http://www.dca.uem.br",
     tags: ["bolsas", "auxílio", "psicologia", "moradia"],
@@ -29,7 +29,7 @@ export const facilidadesData = [
   {
     id: "instituto-de-linguas",
     titulo: "Instituto de Línguas (ILG)",
-    categoria: "Idiomas",
+    categoria: "Idiomas e Internacionalização",
     descricao: "Oferece cursos de idiomas, disponibilizando aulas de inglês, espanhol e francês, com foco na formação no idioma. Os cursos são oferecidos mediante pagamento de matrícula e mensalidades, que variam de R$105,70 a R$235,00.",
     link: "http://www.ilg.uem.br",
     tags: ["inglês", "espanhol", "francês", "idiomas", "cursos"],
@@ -38,7 +38,7 @@ export const facilidadesData = [
   {
     id: "propae",
     titulo: "Programa de Apoio aos Estudantes com Necessidades Especiais (PROPAE)",
-    categoria: "Assistência Estudantil / Acessibilidade",
+    categoria: "Assistência e Permanência",
     descricao: "Programa da UEM que oferece apoio a estudantes com deficiência e/ou necessidades educacionais especiais. Promove a inclusão, oferece materiais adaptados, acompanhamento e atua na redução de barreiras de acessibilidade.",
     link: "http://www.propae.uem.br",
     tags: ["acessibilidade", "inclusão", "deficiência", "apoio", "necessidades especiais"],
@@ -47,7 +47,7 @@ export const facilidadesData = [
   {
     id: "instituto-de-estudos-japoneses",
     titulo: "Instituto de Estudos Japoneses (IEJ)",
-    categoria: "Idiomas e Cultura",
+    categoria: "Idiomas e Internacionalização",
     descricao: "Promove a integração universidade-sociedade através de atividades relacionadas à Língua e Cultura Japonesa, trabalhando para difundir a cultura japonesa.",
     link: "http://www.iej.uem.br",
     tags: ["japonês", "cultura", "idiomas", "língua japonesa"],
@@ -56,7 +56,7 @@ export const facilidadesData = [
   {
     id: "diretoria-assuntos-academicos",
     titulo: "Diretoria de Assuntos Acadêmicos (DAA)",
-    categoria: "Assuntos Acadêmicos",
+    categoria: "Serviços Acadêmicos",
     descricao: "Setor administrativo da vida do aluno na UEM. Na DAA, o estudante resolve questões de matrícula, solicita histórico escolar, emite certificados e acompanha toda a sua trajetória documental.",
     link: "http://www.daa.uem.br",
     tags: ["matrícula", "histórico escolar", "certificados", "documentos", "graduação"],
@@ -65,7 +65,7 @@ export const facilidadesData = [
   {
     id: "auxilio-alimentacao",
     titulo: "Auxílio Alimentação",
-    categoria: "Assistência Estudantil",
+    categoria: "Assistência e Permanência",
     descricao: "Concedido aos alunos em situação de vulnerabilidade socioeconômica, com a finalidade de oferecer condições para o atendimento de suas necessidades de alimentação básica e contribuir para a sua permanência na instituição.",
     link: "http://www.dca.uem.br",
     tags: ["alimentação", "auxílio", "vulnerabilidade", "permanência", "assistência"],
@@ -74,7 +74,7 @@ export const facilidadesData = [
   {
     id: "central-de-estagio",
     titulo: "Central de Estágio",
-    categoria: "Oportunidades / Estágios",
+    categoria: "Carreira e Extensão",
     descricao: "Através da Central de Estágio do governo do Paraná, oferece estágio remunerado não obrigatório no campus da UEM. As vagas são abertas para alunos de graduação de todas as instituições de ensino.",
     link: "http://www.estagio.uem.br",
     tags: ["estágio", "remunerado", "vagas", "governo pr", "oportunidade"],
@@ -83,7 +83,7 @@ export const facilidadesData = [
   {
     id: "servico-social-e-psicologico",
     titulo: "Serviço Social e Psicológico (ACOLHE UEM)",
-    categoria: "Assistência Estudantil",
+    categoria: "Assistência e Permanência",
     descricao: "Desenvolve ações para atender demandas psicossociais e socioeconômicas, contribuindo para a permanência do aluno. Inclui o projeto ACOLHE UEM, que orienta estudantes sobre serviços e direitos por meio de rodas de conversa.",
     link: "http://www.dca.uem.br",
     tags: ["psicologia", "serviço social", "acolhe uem", "saúde mental", "apoio"],
