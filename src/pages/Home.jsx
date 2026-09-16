@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ExternalLink } from 'lucide-react';
+import { ArrowRight, ExternalLink, Folder } from 'lucide-react';
 import { oportunidadesData } from '../data/oportunidades';
 import { facilidadesData } from '../data/facilidades';
 import categoriaIcones from '../utils/categoriaIcones';
@@ -83,21 +83,22 @@ export default function Home() {
         <h2 className="font-display text-[24px] font-bold text-text mb-6">Navegue por categoria</h2>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
           {todasCategorias.map((cat, index) => {
-            const IconeCategoria = categoriaIcones[cat];
+            // 2. Adicione um fallback caso a chave não exista no objeto
+            const IconeCategoria = categoriaIcones[cat] || Folder;
 
             return (
-              <React.Fragment key={cat}>
+                <React.Fragment key={cat}>
                 {index > 0 && <span aria-hidden="true" className="text-border">|</span>}
                 <Link
-                  to={`/explorar?cat=${encodeURIComponent(cat)}`}
-                  className="inline-flex items-center gap-1 text-[15px] font-bold text-text hover:underline hover:underline-offset-4 outline-none focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+                    to={`/explorar?cat=${encodeURIComponent(cat)}`}
+                    className="inline-flex items-center gap-1 text-[15px] font-bold text-text hover:underline hover:underline-offset-4 outline-none focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
                 >
-                  <IconeCategoria size={14} aria-hidden="true" />
-                  {cat}
+                    <IconeCategoria size={14} aria-hidden="true" />
+                    {cat}
                 </Link>
-              </React.Fragment>
+                </React.Fragment>
             );
-          })}
+            })}
         </div>
       </section>
 
