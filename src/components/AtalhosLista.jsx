@@ -11,8 +11,8 @@ const atalhos = [
 export default function AtalhosLista() {
   return (
     <nav 
-      className="flex items-center gap-5 overflow-x-auto lg:overflow-visible lg:gap-8 pb-2 lg:pb-0 hide-scrollbar w-full"
-      aria-label="Atalhos rápidos"
+      className="flex items-center gap-4 overflow-x-auto hide-scrollbar py-1"
+      aria-label="Atalhos rápidos UEM"
     >
       {atalhos.map((item) => {
         const Icone = item.icone;
@@ -22,15 +22,11 @@ export default function AtalhosLista() {
             href={item.link}
             target="_blank"
             rel="noreferrer"
-            className="group flex items-center gap-2 shrink-0 rounded-sm text-text-muted hover:text-uem-verde outline-none focus-visible:text-uem-verde focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2 focus-visible:ring-offset-bg transition-all duration-200"
+            className="group flex items-center gap-1.5 shrink-0 text-[13px] font-bold text-text-muted hover:text-uem-verde transition-colors outline-none focus-visible:ring-2 focus-visible:ring-uem-verde rounded-md px-1.5 py-0.5"
           >
-            <Icone className="w-5 h-5 transition-colors" />
-            <span className="text-[15px] font-bold font-sans">
-              {item.nome}
-            </span>
-            {/* Ícone sempre visível, mas com cor sutil que ganha destaque no hover/focus */}
-            <ExternalLink className="w-3 h-3 text-border group-hover:text-uem-verde focus-visible:text-uem-verde transition-colors" />
-            <span className="sr-only"> (abre em nova aba)</span>
+            <Icone className="w-4 h-4 text-text-muted group-hover:text-uem-verde transition-colors" />
+            <span>{item.nome}</span>
+            <ExternalLink className="w-3 h-3 text-border group-hover:text-uem-verde transition-colors" />
           </a>
         );
       })}

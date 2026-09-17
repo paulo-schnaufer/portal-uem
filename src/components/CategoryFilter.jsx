@@ -10,7 +10,7 @@ export default function CategoryFilter({ categorias, selecionadas, onChange }) {
   };
 
   return (
-    <div className="flex flex-wrap gap-2 py-4">
+    <div className="flex items-center gap-2 py-2 overflow-x-auto sm:flex-wrap sm:overflow-visible hide-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
       {categorias.map((cat) => {
         const isAtivo = selecionadas.includes(cat);
         return (
@@ -18,10 +18,10 @@ export default function CategoryFilter({ categorias, selecionadas, onChange }) {
             key={cat}
             onClick={() => toggleCategoria(cat)}
             aria-pressed={isAtivo}
-            className={`px-4 py-1.5 rounded-full text-[13px] font-bold font-sans transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bg focus-visible:ring-uem-verde ${
+            className={`shrink-0 px-3.5 py-1.5 rounded-full text-[13px] font-bold transition-all duration-200 outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-uem-verde ${
               isAtivo
-                ? 'bg-uem-verde text-text border border-uem-verde'
-                : 'bg-bg text-text-muted border border-border hover:bg-surface-hover hover:border-uem-verde hover:text-text'
+                ? 'bg-uem-verde text-white border border-uem-verde shadow-xs'
+                : 'bg-surface text-text-muted border border-border hover:bg-surface-hover hover:border-uem-verde/60 hover:text-text'
             }`}
           >
             {cat}

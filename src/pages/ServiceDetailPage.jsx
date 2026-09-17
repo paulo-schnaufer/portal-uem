@@ -1,10 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import {
-  ArrowLeft,
-  BookOpen,
-  ExternalLink,
-} from 'lucide-react';
+import { ArrowLeft, BookOpen, ExternalLink, Tag } from 'lucide-react';
 import { oportunidadesData } from '../data/oportunidades';
 import { facilidadesData } from '../data/facilidades';
 import iconesPorCategoria from '../utils/categoriaIcones';
@@ -18,10 +14,10 @@ export default function ServiceDetailPage() {
     return (
       <div className="min-h-screen bg-bg py-8 px-4 sm:px-6 lg:px-8 font-sans">
         <div className="max-w-4xl mx-auto px-4 py-8">
-          <h1 className="text-3xl md:text-4xl font-extrabold text-text mb-6">
-            Esse serviço não está mais disponível por aqui. Ele pode ter mudado de lugar — volte para o diretório e procure de novo.
+          <h1 className="text-2xl font-bold text-text mb-6">
+            Serviço não encontrado ou desativado.
           </h1>
-          <Link to="/explorar" className="text-text-muted hover:text-uem-verde inline-flex items-center gap-2 transition-colors outline-none focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded-sm">
+          <Link to="/explorar" className="text-uem-verde hover:underline inline-flex items-center gap-2">
             <ArrowLeft size={16} /> Voltar para o diretório
           </Link>
         </div>
@@ -33,84 +29,81 @@ export default function ServiceDetailPage() {
 
   return (
     <div className="min-h-screen bg-bg py-8 px-4 sm:px-6 lg:px-8 font-sans">
-      <div className="max-w-4xl mx-auto px-4 py-8">
-        <div className="surface-flat mb-8 max-h-[220px] aspect-[21/9] bg-uem-verde-suave dark:bg-surface-hover rounded-xl flex items-center justify-center">
-          <IconeCategoria className="text-uem-verde" size={56} strokeWidth={1.25} aria-hidden="true" />
+      <div className="max-w-4xl mx-auto space-y-6">
+        
+        {/* Banner do Ícone Compacto */}
+        <div className="h-32 sm:h-40 bg-surface border border-border rounded-2xl flex items-center justify-center shadow-xs">
+          <div className="p-4 rounded-2xl bg-uem-verde/10 text-uem-verde">
+            <IconeCategoria size={48} strokeWidth={1.5} />
+          </div>
         </div>
 
-        <nav aria-label="Breadcrumb" className="mb-6 flex flex-wrap items-center gap-2 text-[14px] text-text-muted">
-          <Link to="/" className="hover:text-uem-verde transition-colors outline-none focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded-sm">
-            Início
-          </Link>
-          <span aria-hidden="true">/</span>
-          <Link to="/explorar" className="hover:text-uem-verde transition-colors outline-none focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded-sm">
-            Explorar
-          </Link>
-          <span aria-hidden="true">/</span>
-          <Link to={`/explorar?cat=${encodeURIComponent(servico.categoria)}`} className="hover:text-uem-verde transition-colors outline-none focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded-sm">
-            {servico.categoria}
-          </Link>
-          <span aria-hidden="true">/</span>
-          <span className="text-text" aria-current="page">{servico.titulo}</span>
+        {/* Breadcrumb */}
+        <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-[13px] text-text-muted">
+          <Link to="/" className="hover:text-uem-verde transition-colors">Início</Link>
+          <span>/</span>
+          <Link to="/explorar" className="hover:text-uem-verde transition-colors">Explorar</Link>
+          <span>/</span>
+          <span className="text-text font-medium">{servico.titulo}</span>
         </nav>
 
-        <div className="inline-flex items-center gap-2 bg-uem-verde-suave dark:bg-surface-hover text-uem-verde px-3 py-1.5 rounded-full text-[13px] font-bold mb-4">
-          <IconeCategoria size={16} aria-hidden="true" />
-          {servico.categoria}
-        </div>
-
-        <h1 className="text-3xl md:text-4xl font-extrabold text-text leading-tight mb-8">
+        {/* Título Principal */}
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-text leading-snug">
           {servico.titulo}
         </h1>
 
+        {/* Grid de Informações */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="surface-outline md:col-span-2 bg-surface p-6 rounded-sm">
-            <h2 className="text-xl font-bold text-text mb-4">Sobre o serviço</h2>
-            <p className="text-text-muted text-[16px] leading-relaxed">
+          <div className="md:col-span-2 bg-surface border border-border p-6 rounded-2xl space-y-3">
+            <h2 className="text-[16px] font-bold text-text">Sobre o serviço</h2>
+            <p className="text-text-muted text-[15px] leading-relaxed">
               {servico.descricao}
             </p>
           </div>
 
-          <div className="surface-outline bg-surface p-6 rounded-sm flex flex-col justify-between">
-            <div>
-              <h3 className="text-lg font-bold text-text mb-4 border-b border-border pb-2">
+          <div className="bg-surface border border-border p-6 rounded-2xl flex flex-col justify-between space-y-6">
+            <div className="space-y-4">
+              <h3 className="text-[16px] font-bold text-text border-b border-border/60 pb-3">
                 Acesso Direto
               </h3>
-            </div>
-            <div className="mt-4">
+              
               <a
                 href={servico.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="surface-interactive flex items-center justify-center gap-2 w-full bg-uem-verde hover:bg-uem-verde/90 text-text font-bold py-3 px-4 rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-uem-verde focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+                className="w-full inline-flex items-center justify-center gap-2 bg-uem-verde hover:bg-uem-verde/90 text-white font-bold py-3 px-4 rounded-xl transition-colors shadow-xs"
               >
                 {ehOportunidade ? 'Acessar edital' : 'Acessar site oficial'}
-                <ExternalLink size={18} />
+                <ExternalLink size={16} />
               </a>
-              <div className="mt-4 space-y-3 border-t border-border pt-4 text-[13px] text-text-muted">
-                <div className="flex justify-between gap-4">
-                  <span>Categoria</span>
-                  <span className="text-text font-semibold text-right">{servico.categoria}</span>
+
+              <div className="space-y-3 border-t border-border/60 pt-4 text-[13px]">
+                <div className="flex justify-between items-center gap-2">
+                  <span className="text-text-muted">Categoria</span>
+                  <span className="text-text font-semibold">{servico.categoria}</span>
                 </div>
-                {servico.prazo && (
-                  <div className="flex justify-between gap-4">
-                    <span>Prazo</span>
-                    <span className="text-text font-semibold text-right">{servico.prazo}</span>
-                  </div>
-                )}
+
                 {servico.tags?.length > 0 && (
-                  <div className="flex justify-between gap-4">
-                    <span>Tags</span>
-                    <span className="text-text font-semibold text-right">{servico.tags.join(', ')}</span>
+                  <div className="space-y-1.5 pt-2">
+                    <span className="text-text-muted block">Tags</span>
+                    <div className="flex flex-wrap gap-1.5">
+                      {servico.tags.map((tag) => (
+                        <span key={tag} className="text-[11px] font-semibold text-text-muted bg-bg border border-border/60 px-2 py-0.5 rounded-md">
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
-              <p className="mt-3 text-[13px] text-text-muted text-center">
-                Você será redirecionado para o portal oficial da UEM.
-              </p>
             </div>
+
+            <p className="text-[12px] text-text-muted text-center">
+              Você será redirecionado para o portal oficial da UEM.
+            </p>
           </div>
         </div>
+
       </div>
     </div>
   );

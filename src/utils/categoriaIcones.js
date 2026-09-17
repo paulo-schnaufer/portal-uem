@@ -1,17 +1,27 @@
 import {
-  BookOpen,
-  FlaskConical,
-  Languages,
-  LifeBuoy,
   Library,
-  Plane,
-  Search,
+  HeartHandshake,
+  Globe,
+  Briefcase,
+  FlaskConical,
+  BookOpen,
   Utensils,
+  Plane,
+  Languages,
+  Search,
 } from 'lucide-react';
 
 const categoriaIcones = {
+  // Categorias principais padronizadas no app
+  'Serviços Acadêmicos': Library,
+  'Assistência e Permanência': HeartHandshake,
+  'Idiomas e Internacionalização': Globe,
+  'Carreira e Extensão': Briefcase,
+  'Pesquisa e Ciência': FlaskConical,
+
+  // Mapeamentos secundários/individuais
   Alimentação: Utensils,
-  'Assistência Estudantil': LifeBuoy,
+  'Assistência Estudantil': HeartHandshake,
   Biblioteca: Library,
   Estágio: Search,
   Extensão: BookOpen,
