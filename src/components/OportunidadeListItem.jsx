@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, AlertCircle } from 'lucide-react'; // Adicionado AlertCircle
+import { ChevronDown, ChevronUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function OportunidadeListItem({ oportunidade, origem }) {
@@ -22,10 +22,9 @@ export default function OportunidadeListItem({ oportunidade, origem }) {
               {oportunidade.titulo}
             </h3>
 
-            {/* SELO DE NÃO VALIDADO / PENDENTE */}
+            {/* Tag discreta de Em Validação */}
             {oportunidade.validado === false && (
-              <span className="inline-flex items-center gap-1 text-[11px] font-semibold bg-amber-500/10 text-amber-600 border border-amber-500/30 px-2 py-0.5 rounded-full">
-                <AlertCircle size={12} />
+              <span className="text-[11px] font-normal text-text-muted/60 bg-bg border border-border/50 px-2 py-0.5 rounded-full">
                 Em validação
               </span>
             )}
@@ -56,13 +55,6 @@ export default function OportunidadeListItem({ oportunidade, origem }) {
       {expandido && (
         <div className="p-4 pt-0">
           <div className="pt-3 border-t border-border">
-            {/* AVISO INFORMATIVO SE NÃO VALIDADO */}
-            {oportunidade.validado === false && (
-              <div className="mb-3 p-2.5 rounded bg-amber-500/10 border border-amber-500/20 text-amber-700 dark:text-amber-400 text-[13px]">
-                ⚠️ <strong>Nota:</strong> Esta informação ainda está em processo de validação oficial com o setor responsável.
-              </div>
-            )}
-
             <p className="text-[15px] font-normal text-text-muted font-sans leading-relaxed mb-4">
               {oportunidade.descricao}
             </p>
